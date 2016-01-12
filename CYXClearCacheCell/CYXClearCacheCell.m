@@ -19,13 +19,7 @@
         
         self.textLabel.text = @"清除缓存";
         
-        // 右边显示一个圈圈
-        UIActivityIndicatorView * loadingView = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-        // 开始动画
-        [loadingView startAnimating];
-        // 赋值给右边的控件
-        self.accessoryView = loadingView;
-        // 开启异步线程计算数据
+        // 开启异步线程计算缓存大小（耗时操作一般放在异步子线程）
         [[[NSOperationQueue alloc]init]addOperationWithBlock:^{
             // 计算缓存的大小
             // 单位
